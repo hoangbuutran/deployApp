@@ -1,0 +1,211 @@
+<div class="row col-md-12">
+  <div class="col-sm-2 col-md-2">
+    <br>
+    <br>
+    <div class="box">
+      <div id="menu" class="box-header with-border">
+        <h4 class="box-title">
+          <a routerLink="/nguoidung/home">
+            <i class="fa fa-link"></i>
+            <span>Trang Chủ</span>
+          </a>
+        </h4>
+      </div>
+      <div id="menu" class="box-header with-border">
+        <h4 class="box-title">
+          <a routerLink="/nguoidung/thucungnguoidung/home">
+            <i class="fa fa-link"></i>
+            <span>Thú cưng của bạn</span>
+          </a>
+        </h4>
+      </div>
+      <div id="menu" class="box-header with-border">
+        <h4 class="box-title">
+          <a routerLink="/nguoidung/kenhnguoiban">
+            <i class="fa fa-link"></i>
+            <span>Mua sản phẩm</span>
+          </a>
+        </h4>
+      </div>
+      <div id="menu" class="box-header with-border">
+        <h4 class="box-title">
+          <a routerLink="/nguoidung/hoadondamua">
+            <i class="fa fa-link"></i>
+            <span>Hóa đơn đã mua</span>
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7 col-md-7">
+    <br>
+    <br>
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Hóa đơn bạn đã mua</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Ngày mua</th>
+              <th>Trạng thái</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listHoaDonNguoiDung">
+            <tr>
+              <td>
+                {{ item.NgayLapHoaDon | date: "yyyy-MM-dd"}}
+              </td>
+              <td>
+                {{ item.TrangThai }}
+              </td>
+              <td class="form-horizontal">
+                <button (click)="listHoaDonDetail(item.IdHoaDon)" data-toggle="modal" data-target="#listHoaDonDetailDetalModal" class="btn btn-warning btn-rounded m-b-10 m-l-5">Xem chi tiết</button>
+              </td>
+              <td class="form-horizontal">
+                <div *ngIf="!item.TrangThai">
+                  <button (click)="huyDonHang(item.IdHoaDon)" class="btn btn-warning btn-rounded m-b-10 m-l-5">Hủy đơn hàng</button>
+                </div>
+                <div *ngIf="item.TrangThai">
+                  <label>Đơn hàng đã được duyệt</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3 col-md-3">
+    <br>
+    <br>
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Sản phẩm mới</h3>
+        <div class="box-tools pull-right">
+          <button class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button class="btn btn-box-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <ul class="products-list product-list-in-box">
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 1
+                <span class="label label-warning pull-right">$1800</span>
+              </a>
+              <span class="product-description">
+                Samsung 32" 1080p 60Hz LED Smart HDTV.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 2
+                <span class="label label-info pull-right">$700</span>
+              </a>
+              <span class="product-description">
+                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 3
+                <span class="label label-danger pull-right">$350</span>
+              </a>
+              <span class="product-description">
+                Xbox One Console Bundle with Halo Master Chief Collection.
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+          <li class="item">
+            <div class="product-img">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+              <a href="javascript::;" class="product-title">Sản phẩm 4
+                <span class="label label-success pull-right">$399</span>
+              </a>
+              <span class="product-description">
+                PlayStation 4 500GB Console (PS4)
+              </span>
+            </div>
+          </li>
+          <!-- /.item -->
+        </ul>
+      </div>
+      <!-- /.box-body -->
+    </div>
+  </div>
+</div>
+
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="listHoaDonDetailDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin chi tiết sản phẩm trong giỏ hàng</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Tên sản phẩm</th>
+              <th>Số lượng</th>
+              <th>Giá</th>
+              <th>Tổng giá</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of listCTHD">
+            <tr>
+              <td>
+                {{ item.SanPham.TenSanPham }}
+              </td>
+              <td>
+                {{ item.SoLuong }}
+              </td>
+              <td>
+                {{ item.Gia }}
+              </td>
+              <td>
+                {{ item.SoLuong*item.Gia }}
+              </td>
+            </tr>
+          </tbody>
+          <br>
+          <br>
+          <div>
+            <strong> Tổng giá trị đơn hàng: {{ tongGiaTriHoaDon }} </strong>
+          </div>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

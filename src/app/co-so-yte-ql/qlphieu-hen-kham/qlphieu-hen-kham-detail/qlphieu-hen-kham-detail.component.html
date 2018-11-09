@@ -1,0 +1,115 @@
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box-title">
+        <div class="box-header with-border">
+          <h3 class="box-title">Thông tin chi tiết phiếu hẹn khám của khách hàng</h3>
+        </div>
+        <div class="col-lg-6 col-xs-6">
+          <h2>Thông tin phiếu</h2>
+          <div class="modal-body">
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Tên khách hàng: </label>
+                  {{ tenNguoiDungDetail }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Giờ hẹn: </label>
+                  {{ GioHenKhamDetail }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Ngày hẹn: </label>
+                  {{ NgayHenKhamDetail | date: "yyyy-MM-dd" }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Dịch vụ khám: </label>
+                  {{ tenDichVuDetail }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Lý do: </label>
+                  {{ LyDoHenKhamDetail }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>Trạng thái: </label>
+                  {{ TinhTrangDetail }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-horizontal">
+              <div class="form-group">
+                <div *ngIf="!TinhTrangDetail">
+                  <button (click)="duyetPhieu(IdLichHenKhamDetail)" class="btn btn-block btn-success btn-lg">Duyệt phiếu</button>
+                </div>
+                <br>
+                <div *ngIf="!TinhTrangDetail">
+                  <button (click)="removePhieu(IdLichHenKhamDetail)" class="btn btn-block btn-danger btn-lg">Hủy(xóa) phiếu</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xs-6">
+          <h3>Lịch hẹn khám trong ngày tương ứng với phiếu</h3>
+          <div class="box-body">
+
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Ngày hẹn</th>
+                  <th>Giờ hẹn</th>
+                  <th>Loại dịch vụ</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of listPhieuHenNgay | paginate: { itemsPerPage: 5, currentPage: p }">
+                <tr>
+                  <td>
+                    {{ item.NgayHenKham | date: "yyyy-MM-dd" }}
+                  </td>
+                  <td>
+                    {{ item.GioHenKham }}
+                  </td>
+                  <td>
+                    {{ item.DichVu.TenDichVu }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

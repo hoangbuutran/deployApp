@@ -1,0 +1,134 @@
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="row col-md-12">
+
+            <div class="col-lg-2 col-xs-3">
+                <div class="box">
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Trang Chủ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/dichvu/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Dịch vụ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/hoatdong/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Hoạt động</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/datlichkham/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Đặt lịch khám</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menu" class="box-header with-border">
+                        <h4 class="box-title">
+                            <a routerLink="/nguoidung/inforcosothuy/{{id}}/suckhoethucung/home/{{id}}">
+                                <i class="fa fa-link"></i>
+                                <span>Sức khỏe thú cưng</span>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-xs-6">
+                <router-outlet></router-outlet>
+            </div>
+
+            <div class="col-lg-3 col-xs-3">
+                <div id="sidebar" class="col-4" role="complementary">
+                    <div id="search-3" class="widget-1 first widget widget_search">
+                        <h3 class="widget-title">Tìm kiếm</h3>
+                        <form method="get" class="search-form" action="http://petcare.vn/">
+                            <label>
+                                <input type="search" class="search-field" placeholder="Từ khóa …" value="" name="s">
+                            </label>
+                            <input type="submit" class="search-submit" value="Tìm">
+                        </form>
+                    </div>
+                    <div id="ots-image-62110021" class="widget-2 widget ots-image">
+                        <div class="single-image image-left">
+                            <img src="http://petcare.vn/wp-content/uploads/2017/08/chuyen-dc_doc.jpg" alt="chuyen dc_doc">
+                        </div>
+                    </div>
+                    <div id="ots-recent-posts-2" class="widget-3 last widget ots-recent-posts">
+                        <h3 class="widget-title">Mới đăng</h3>
+                        <ul>
+                            <li class="format-default">
+                                <a href="http://petcare.vn/hoi-nhanh-dap-gon-ve-bravecto/" title="Hỏi nhanh – Đáp gọn về Bravecto" rel="bookmark">
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/Bravecto-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                        alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/Bravecto-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/Bravecto-100x100.jpg 100w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    <p>Hỏi nhanh – Đáp gọn về Bravecto
+                                        <span class="widget_date">18/07/2018</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="format-default">
+                                <a href="http://petcare.vn/nhap-mon-nuoi-boss/" title="Nhập môn nuôi “BOSS”" rel="bookmark">
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                        alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/nhap-mon-nuoi-boss_cham-cho-meo-con-100x100.jpg 100w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    <p>Nhập môn nuôi “BOSS”
+                                        <span class="widget_date">17/07/2018</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="format-default">
+                                <a href="http://petcare.vn/chuyen-cua-buka/" title="Chuyện của Buka" rel="bookmark">
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                        alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/buka-viem-tu-cung-1-100x100.jpg 100w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    <p>Chuyện của Buka
+                                        <span class="widget_date">17/07/2018</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="format-default">
+                                <a href="http://petcare.vn/nao-minh-cung-rua-tay-rua-tay-dung-cach/" title="Nào mình cùng rửa tay – Rửa tay đúng cách" rel="bookmark">
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                        alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/quy-trinh-rua-tay-100x100.jpg 100w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    <p>Nào mình cùng rửa tay – Rửa tay đúng cách
+                                        <span class="widget_date">15/07/2018</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="format-default">
+                                <a href="http://petcare.vn/tiem-phong-benh-dai-cho-cho-meo-an-tam-song-vui/" title="Tiêm phòng bệnh dại cho chó mèo – an tâm sống vui"
+                                    rel="bookmark">
+                                    <img src="http://petcare.vn/wp-content/uploads/2018/07/Rabies_-120x120.jpg" class="attachment-ots-post-thumbnail-small size-ots-post-thumbnail-small wp-post-image"
+                                        alt="" srcset="http://petcare.vn/wp-content/uploads/2018/07/Rabies_-120x120.jpg 120w, http://petcare.vn/wp-content/uploads/2018/07/Rabies_-150x150.jpg 150w, http://petcare.vn/wp-content/uploads/2018/07/Rabies_-45x45.jpg 45w, http://petcare.vn/wp-content/uploads/2018/07/Rabies_-300x300.jpg 300w, http://petcare.vn/wp-content/uploads/2018/07/Rabies_-100x100.jpg 100w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    <p>Tiêm phòng bệnh dại cho chó mèo – an tâm sống vui
+                                        <span class="widget_date">15/07/2018</span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->

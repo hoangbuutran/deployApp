@@ -1,0 +1,142 @@
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Danh sách cơ sở thú y</h3>
+        </div>
+        <br>
+        <div class="btnthem">
+          <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" routerLink="/admin/cosothuy/add">
+            Thêm mới cơ sở thú y
+          </button>
+          <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" (click)="xoaNhieu()">
+            Xóa nhiều
+          </button>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 10px">Select</th>
+                <th>Tên cơ sở</th>
+                <th>Trạng thái</th>
+                <th>Tùy chọn</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of coSoThuYService.coSoThuYListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
+              <tr>
+                <td>
+                  <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdCoSoThuY)">
+                </td>
+                <td>
+                  {{ item.TenCoSoThuY }}
+                </td>
+                <td>
+                  {{ item.TrangThai }}
+                </td>
+                <td>
+                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/cosothuy/edit/{{ item.IdCoSoThuY }}">Sửa</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="khoaMo(item.IdCoSoThuY)">Khóa/Mở</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="xemTaiKhoanCoSoThuY(item.IdTaiKhoan)" data-toggle="modal" data-target="#CoSoThuYDetalModal">Tài khoản</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="xemThongTinCoSoThuY(item.IdCoSoThuY)" data-toggle="modal" data-target="#CoSoThuYDetailDetalModal">Xem</button>
+                  <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="xoaCoSoThuY(item.IdCoSoThuY)">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="CoSoThuYDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin tài khoản cơ sở thú y</label>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-horizontal">
+        <div class="form-group">
+          <div class="col-md-5 center-block">
+            <label>User Name: </label>
+            {{ UserNameDetail }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5 center-block">
+            <label>PassWord: </label>
+            {{ PassDetail }}
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="CoSoThuYDetailDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin chi tiết cơ sở thú y</label>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-horizontal">
+        <div class="form-group">
+          <div class="col-md-5">
+            <label>Tên cơ sở thú y: </label>
+            {{ TenCoSoThuYDetail }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5">
+            <label>Địa điểm: </label>
+            {{ DiaDiemDetail }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5">
+            <label>Số điện thoại: </label>
+            {{ SDTDetail }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5">
+            <label>Email: </label>
+            {{ EmailDetail }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5">
+            <label>Trạng thái: </label>
+            {{ TrangThaiDetail }}
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

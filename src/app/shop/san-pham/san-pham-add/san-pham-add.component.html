@@ -1,0 +1,78 @@
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box-title">
+        <div class="box-header with-border">
+          <h3 class="box-title">Thêm mới sản phẩm</h3>
+        </div>
+        <form class="form-horizontal" [formGroup]="SanPhamAddForm" (ngSubmit)="SanPhamAddSubmitForm()">
+          <div class="box-body">
+            <input type="hidden" class="form-control" formControlName="IdShop">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Tên sản phẩm</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="TenSanPham" placeholder="Tên sản phẩm">
+                <p *ngIf="SanPhamAddForm.get('TenSanPham').invalid && SanPhamAddForm.get('TenSanPham').touched">Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Đặc điểm</label>
+              <div class="col-sm-9">
+                <editor formControlName="DacDiem" class="col-md-12"></editor>
+                <p *ngIf="SanPhamAddForm.get('TenSanPham').invalid && SanPhamAddForm.get('TenSanPham').touched">Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Giá sản phẩm</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="Gia" placeholder="Giá sản phẩm">
+                <p *ngIf="SanPhamAddForm.get('Gia').invalid && SanPhamAddForm.get('Gia').touched">Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Số lượng hiện có</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="SoLuong" placeholder="Số lượng hiện có">
+                <p *ngIf="SanPhamAddForm.get('SoLuong').invalid && SanPhamAddForm.get('SoLuong').touched">Required</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh cho sản phẩm</label>
+              <div class="col-sm-9">
+                <div>
+                  <img *ngFor="let url of urls" [src]="url" class="rounded mb-3" style="width:180px;height:250px; border-radius: 10px">
+                </div>
+                <!-- <img [src]="imageUrl" style="width:180px;height:250px; border-radius: 10px"> -->
+                <hr>
+                <input type="file" id="file" multiple (change)="getFileDetails($event)">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Loại sản phẩm</label>
+              <div class="col-sm-3">
+                <select class="form-control select2" formControlName="IdLoaiSanPham">
+                  <option value="" disabled selected>Select your option</option>
+                  <option *ngFor="let c of loaiSanPhamService.loaiSanPhamListProperty" [value]="c.IdLoaiSanPham">{{c.TenLoaiSanPham}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Trạng thái</label>
+              <div class="col-sm-3">
+                <select class="form-control select2" formControlName="TrangThai">
+                  <option value="" disabled selected>Select your option</option>
+                  <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" [disabled]="SanPhamAddForm.invalid" class="btn btn-info pull-right">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

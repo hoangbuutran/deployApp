@@ -1,0 +1,65 @@
+<!-- Main content -->
+<section class="content">
+
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Danh sách 10 sản phẩm bán chạy trong tháng</h3>
+        </div>
+        <br>
+
+        <form class="form-horizontal" [formGroup]="ThongKe10Form" (ngSubmit)="ThongKe10SubmitForm()">
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 control-label">Chọn ngày tháng cần thống kê</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" formControlName="NgayThang">
+                <p *ngIf="ThongKe10Form.get('NgayThang').invalid && ThongKe10Form.get('NgayThang').touched">Required</p>
+              </div>
+              <button type="submit" [disabled]="ThongKe10Form.invalid" class="btn btn-info">Submit</button>
+            </div>
+
+          </div>
+        </form>
+
+
+        <!-- /.box-header -->
+        <div class="box-body">
+          
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="col-md-3 col-lg-3 col-xs-3">Tên sản phẩm</th>
+                    <th class="col-md-3 col-lg-3 col-xs-3">Giá</th>
+                    <th class="col-md-3 col-lg-3 col-xs-3">Số lượng mua</th>
+                    <th class="col-lg-3 col-xs-3">Tùy chọn</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of thongKeService.thongKe5SanPhamMaxDayProperty">
+                  <tr>
+                    <td>
+                      {{ item.TenSanPham }}
+                    </td>
+                    <td>
+                      {{ item.Gia }}
+                    </td>
+                    <td>
+                      {{ item.soluongban }}
+                    </td>
+                    <td>
+                      <a (click)="XemThongTinSanPham(item.IdSanPham)" title="Xem sản phẩm">
+                        <i class="fa fa-fw fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

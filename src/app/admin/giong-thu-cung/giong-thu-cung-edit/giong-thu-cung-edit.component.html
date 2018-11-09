@@ -1,0 +1,110 @@
+<!-- Main content -->
+<section class="content">
+
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box-title">
+        <div class="box-header with-border">
+          <h3 class="box-title">Sửa thông tin Giống Thú Cưng</h3>
+        </div>
+        <form class="form-horizontal" [formGroup]="GiongThuCungEditForm" (ngSubmit)="GiongThuCungEditSubmitForm()">
+          <div class="box-body">
+
+            <input type="hidden" formControlName="IdGiongThuCung" name="IdGiongThuCung">
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Tên giống</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="TenGiongThuCung" placeholder="Tên giống thú cưng">
+                <p *ngIf="GiongThuCungEditForm.get('TenGiongThuCung').invalid && GiongThuCungEditForm.get('TenGiongThuCung').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Giới thiệu</label>
+              <div class="col-sm-9">
+                <editor formControlName="GioiThieu" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('GioiThieu').invalid && GiongThuCungEditForm.get('GioiThieu').touched">Required</p>
+              </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Hình ảnh</label>
+              <div class="col-sm-9">
+                <img [src]="imageUrl" style="width:350px; height:250px; border-radius: 10px">
+                <hr>
+                <input type="file" #HinhAnh accept="image/*" (change)="handleFileInput($event.target.files)">
+                <p *ngIf="GiongThuCungEditForm.get('HinhAnh').invalid && GiongThuCungEditForm.get('HinhAnh').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Đặc điểm</label>
+              <div class="col-sm-9">
+                <editor formControlName="DacDiem" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('DacDiem').invalid && GiongThuCungEditForm.get('DacDiem').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Tính cách</label>
+              <div class="col-sm-9">
+                <editor formControlName="TinhCach" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('TinhCach').invalid && GiongThuCungEditForm.get('TinhCach').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Cách chăm sóc</label>
+              <div class="col-sm-9">
+                <editor formControlName="CachChamSoc" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('CachChamSoc').invalid && GiongThuCungEditForm.get('CachChamSoc').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Lưu ý sức khỏe</label>
+              <div class="col-sm-9">
+                <editor formControlName="LuuYSucKhoe" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('LuuYSucKhoe').invalid && GiongThuCungEditForm.get('LuuYSucKhoe').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Lịch sử</label>
+              <div class="col-sm-9">
+                <editor formControlName="LichSu" class="col-md-12"></editor>
+                <p *ngIf="GiongThuCungEditForm.get('LichSu').invalid && GiongThuCungEditForm.get('LichSu').touched">Required</p>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Trạng thái</label>
+              <div class="col-sm-3">
+                <select class="form-control select2" formControlName="TrangThai">
+                  <option value="" disabled selected>Select your option</option>
+                  <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                </select>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Trạng thái</label>
+              <div class="col-sm-3">
+                <select class="form-control select2" formControlName="TrangThai">
+                  <option value="" disabled selected>Select your option</option>
+                  <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                </select>
+              </div>
+            </div> -->
+          </div>
+          <div class="box-footer">
+            <button type="submit" [disabled]="GiongThuCungEditForm.invalid" class="btn btn-info pull-right">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

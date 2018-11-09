@@ -1,0 +1,54 @@
+<!-- Main content -->
+<section class="content">
+
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Danh sách hóa đơn được bán trong tháng</h3>
+        </div>
+        <br>
+
+        <form class="form-horizontal" [formGroup]="ThongKeHoaDonTheoThangForm" (ngSubmit)="ThongKeHoaDonTheoThangFormSubmitForm()">
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Từ tháng</label>
+              <div class="col-sm-3">
+                <input type="date" class="form-control" formControlName="TuNgay">
+                <p *ngIf="ThongKeHoaDonTheoThangForm.get('TuNgay').invalid && ThongKeHoaDonTheoThangForm.get('TuNgay').touched">Required</p>
+              </div>
+              <button type="submit" [disabled]="ThongKeHoaDonTheoThangForm.invalid" class="btn btn-info">Submit</button>
+            </div>
+
+          </div>
+        </form>
+
+
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Ngày tao hóa đơn</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of thongKeService.listHoaDonTheoThang">
+                <tr>
+                    <td>
+                      {{ item.NgayLapHoaDon | date: "yyyy-MM-dd"}}
+                    </td>
+                    <td>
+                      {{ item.TrangThai }}
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

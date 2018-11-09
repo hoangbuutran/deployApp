@@ -1,0 +1,116 @@
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Danh sách shop chưa duyệt</h3>
+        </div>
+        <br>
+
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Tên shop</th>
+                <th>Số điện thoại</th>
+                <th>Trạng thái</th>
+                <th>Tùy chọn</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of shopService.shopListChuaDuyetProperty | paginate: { itemsPerPage: 5, currentPage: p }">
+              <tr>
+                <td>
+                  {{ item.TenShop }}
+                </td>
+                <td>
+                  {{ item.SDT }}
+                </td>
+
+                <td>
+                  {{ item.TrangThai }}
+                </td>
+                <td>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="xemThongTinShop(item.IdShop)" data-toggle="modal" data-target="#ShopDetailDetalModal">Xem</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="ShopDetailDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin Shop đăng ký</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+          
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Tên shop: </label>
+              {{ TenShopDetail }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Địa chỉ shop: </label>
+              {{ DiaChiDetail }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Số điện thoại shop: </label>
+              {{ SDTDetail }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Email shop: </label>
+              {{ EmailDetail }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Trạng thái: </label>
+              {{ TrangThaiDetail }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Độ tin cậy shop: </label>
+              {{ DoTinCayDetail }}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-7">
+              <label>Đồng ý chính sách khi tạo shop: </label>
+              {{ DongYChinhSachDetail }}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="Duyet()" class="btn btn-block btn-success btn-lg">Duyệt</button>
+      </div>
+      <div class="modal-footer">
+        <button (click)="TuChoi()" class="btn btn-block btn-danger btn-lg">Xóa</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

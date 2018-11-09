@@ -1,0 +1,62 @@
+<div class="col-md-12">
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <header>
+        <h1>Đăng ký phiếu hẹn khám với cơ sở thú y</h1>
+        <div class="header_meta">
+          Đăng ký phiếu khám bệnh cho thú cưng của bạn với cơ sở thú y của chúng tôi
+        </div>
+      </header>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <br>
+      <form [formGroup]="datLichKhamForm" (ngSubmit)="datLichKhamSubmitForm()" role="form">
+        <!-- text input -->
+        <div class="form-group col-md-6">
+          <label>Họ Tên:</label>
+          <input type="text" class="form-control" value="{{ tenNguoiDungDetail }}" disabled="" placeholder="Enter ...">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Địa chỉ:</label>
+          <input type="text" class="form-control" value="{{ diaChiDetail }}" disabled="" placeholder="Enter ...">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Số điện thoại:</label>
+          <input type="text" class="form-control" value="{{soDienThoai}}" disabled="" placeholder="Enter ...">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Ngày</label>
+          <input type="date" class="form-control" formControlName="NgayHenKham" placeholder="Enter ...">
+          <p *ngIf="datLichKhamForm.get('NgayHenKham').invalid && datLichKhamForm.get('NgayHenKham').touched">Required</p>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Giờ</label>
+          <input type="time" class="form-control" formControlName="GioHenKham" placeholder="Enter ...">
+          <p *ngIf="datLichKhamForm.get('GioHenKham').invalid && datLichKhamForm.get('GioHenKham').touched">Required</p>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Loại dịch vụ cần khám</label>
+          <select class="form-control select2" formControlName="IdDichVu">
+            <option value="" disabled selected>Select your option</option>
+            <option *ngFor="let c of listDichVu" [value]="c.IdDichVu">{{c.TenDichVu}}</option>
+          </select>
+          <p *ngIf="datLichKhamForm.get('IdDichVu').invalid && datLichKhamForm.get('IdDichVu').touched">Required</p>
+        </div>
+        <!-- textarea -->
+        <div class="form-group">
+          <label>Nội dung hẹn khám:</label>
+          <textarea class="form-control" rows="3" formControlName="LyDoHenKham" placeholder="Enter ..."></textarea>
+          <p *ngIf="datLichKhamForm.get('LyDoHenKham').invalid && datLichKhamForm.get('LyDoHenKham').touched">Required</p>
+        </div>
+        <div class="box-footer">
+          <button type="submit" [disabled]="datLichKhamForm.invalid" class="btn btn-info pull-right">Đặt lịch hẹn khám</button>
+        </div>
+      </form>
+
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</div>

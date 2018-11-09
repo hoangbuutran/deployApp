@@ -1,0 +1,15 @@
+.input-group {
+    padding-left: 12px;
+}
+
+input.form-control {
+    height: 33px;
+}
+
+div#modal-dialogLike {
+    width: 24%;
+}
+
+div#modal-dialogBaiViet {
+    width: 53%;
+}

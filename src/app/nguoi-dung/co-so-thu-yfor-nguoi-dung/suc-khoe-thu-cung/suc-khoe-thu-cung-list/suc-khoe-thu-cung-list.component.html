@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <header>
+        <h1>{{ TenSKTCDetail }}</h1>
+        <div class="header_meta">Đăng bởi
+          <span class="author vcard meta_author">
+            <a class="url fn n" href="http://petcare.vn/author/petcare/" title="View all posts by Petcare" rel="author">{{IdCoSoThuYDetail}}</a>
+          </span>
+          <span class="meta-date">
+            <time class="entry-date" datetime="2018-07-15T21:44:27+00:00">{{ NgayThangDetail }}</time>
+          </span>
+        </div>
+      </header>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+
+      <div id="idmota" class="col-md-12">
+        {{ MoTaSKTCDetail }}
+      </div>
+      <br>
+        <br>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <br>
+        <img [src]="ImageShowDetail">
+        <br>
+      </div>
+      <div class="col-md-2">
+
+      </div>
+      <br>
+      <br>
+      <div id="idnoidung" class="col-md-12">
+        {{ NoiDungDetail }}
+        <!-- <div [innerHTML]="NoiDungDetail | keepHtmlSKTC"></div> -->
+      </div>
+
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</div>

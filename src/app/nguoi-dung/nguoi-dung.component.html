@@ -1,0 +1,121 @@
+<div class="wrapper">
+    <header class="main-header">
+        <a routerLink="/nguoidung" class="logo">
+            <span class="logo-lg">
+                <b>AppPet</b>PET</span>
+        </a>
+
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="pull-left col-lg-6 col-xs-6">
+                <form action="#" method="get" class="sidebar-form-search">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search  ...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a routerLink="/nguoidung/cart" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>.Giỏ hàng
+                        </a>
+                    </li>
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small>
+                                                    <i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">See All Messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 10 notifications</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">View all</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- <img src="assets/Image/avatar5.png" class="user-image" alt="User Image"> -->
+                            <img [src]="imageDaiDien" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ tenNguoiDung }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-header">
+                                <!-- <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image"> -->
+                                <img [src]="imageDaiDien" class="img-circle" alt="User Image">
+                                <p>
+                                    {{ tenNguoiDung }} - vai trò người dùng
+                                </p>
+                            </li>
+                            <li class="user-footer col-md-12">
+                                <div class="col-md-3 col-lg-3 col-xs-3 center-block">
+                                    <a routerLink="/nguoidung/nguoidungprofile/home/{{ idNguoiDung }}" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="col-md-5 col-lg-5 col-xs-5 center-block">
+                                    <a routerLink="/nguoidung/nguoidungprofile/changepass" class="btn btn-default btn-flat">Change Pass</a>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xs-3 center-block">
+                                    <a (click)="LogOut()" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            DTU Manager
+        </div>
+        <strong>Copyright &copy; {{ YearNow }}
+            <a target="_black" href="https://www.facebook.com/hoangbuutran66">Bửu Trần FB</a>.</strong> Follow Me.
+    </footer>
+</div>

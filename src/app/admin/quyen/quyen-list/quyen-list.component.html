@@ -1,0 +1,58 @@
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="col-lg-12">
+        <div class="cardTuLamIndex">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách quyền</h3>
+                </div>
+                <br>
+                <div class="btnthem">
+                    <!-- <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" routerLink="/admin/quyen/add">
+                        Thêm mới quyền
+                    </button>
+                    <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" (click)="XoaNhieu()">
+                        Xóa nhiều
+                    </button> -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <!-- <th style="width: 10px">Select</th> -->
+                                <th>Tên quyền</th>
+
+                                <th>Trạng thái</th>
+                                <th>Tùy chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of quyenService.quyenListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
+                            <tr>
+                                <!-- <td>
+                                    <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdQuyen)">
+                                </td> -->
+                                <td>
+                                    {{ item.TenQuyen }}
+                                </td>
+
+                                <td>
+                                    {{ item.TrangThai }}
+                                </td>
+                                <td>
+                                    <!-- <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/quyen/edit/{{ item.IdQuyen }}">Sửa</button> -->
+                                    <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="KhoaMo(item.IdQuyen)">Khóa Mở</button>
+                                    <!-- <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="XoaQuyen(item.IdQuyen)">Xóa</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

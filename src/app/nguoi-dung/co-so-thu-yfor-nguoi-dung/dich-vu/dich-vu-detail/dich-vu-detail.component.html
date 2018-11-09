@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <header>
+        <h1>{{ TenDichVuDetail }}</h1>
+        <div class="header_meta">Đăng bởi
+          <span class="author vcard meta_author">
+            <a class="url fn n" href="http://petcare.vn/author/petcare/" title="View all posts by Petcare" rel="author">{{IdCoSoThuYDetail}}</a>
+          </span>
+          <span class="meta-date">
+            <time class="entry-date" datetime="2018-07-15T21:44:27+00:00">15/07/2018</time>
+          </span>
+        </div>
+      </header>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div [innerHTML]="NoiDungDetail | keepHtmlForDichVu"></div>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</div>

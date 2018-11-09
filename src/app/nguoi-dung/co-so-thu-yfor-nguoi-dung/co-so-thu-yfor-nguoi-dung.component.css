@@ -1,0 +1,187 @@
+#sidebar .widget {
+    margin: 0 0 45px 0;
+}
+.last {
+    margin-right: 0!important;
+}
+#sidebar h3, #sub_footer h3, h3.widget-title {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666;
+}
+#sidebar h3, #sub_footer h3, h3.widget-title {
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    outline: none;
+}
+
+#sidebar li:first-child, #sub_footer li:first-child, .error404 .widget li:first-child, .off-the-shelf-recent-comments li:first-child, .off-the-shelf-recent-posts li:first-child, .recent-comments li:first-child, .categories li:first-child, .pages li:first-child, .archives li:first-child, .meta li:first-child {
+    padding-top: 0;
+}
+
+#sidebar li, .error404 .widget li, .off-the-shelf-recent-comments li, .widget_off-the-shelf-recent-comments li, .off-the-shelf-recent-posts li, .recent-comments li, .categories li, .pages li, .archives li, .meta li, .widget_off-the-shelf-recent-posts li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+.ots-recent-posts li, .ots-recent-comments li, .ots-recent-posts li.format-image {
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0 10px 0;
+}
+li {
+    list-style: none;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    outline: none;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+#sidebar li a {
+    display: block;
+}
+.post a, .team-member a, #similar-posts a img, #sidebar a, .post a h2, .post a q, .ots-link a {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+a, .product .price, .order-total .amount, .tagcloud a {
+    color: #1daf70;
+}
+a {
+    text-decoration: none;
+    line-height: inherit;
+}
+p, .textwidget {
+    line-height: 24px;
+}
+.off-the-shelf-recent-comments .comment-author, .widget_date, .woocommerce-tabs a, .payment_methods p, .woocommerce.widget_layered_nav small {
+    color: #666 !important;
+}
+.widget_date, .widget .comment-author {
+    display: block;
+}
+.ots-recent-posts a img, .ots-recent-comments a img, .tweets img {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.ots-recent-posts img, .ots-recent-comments img, #sidebar .format-image a img {
+    width: 65px;
+    height: 65px;
+    margin-right: 15px;
+    float: left;
+}
+.row img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: top;
+}
+.col-4 {
+    width: 85%;
+}
+input.search-field {
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    width: 100%;
+}
+body, .header_meta a, .meta_data a, .testimonials footer, .testimonial footer, .quote_author, textarea, input, a .meta-date, .product-options a.add_to_cart_button, .product-options a.view-product-details, .comment_name a, .comment-meta .comment_name a, select, button, p.buttons a, #banner p.total {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666;
+}
+input {
+    height: 40px;
+    outline: none;
+    line-height: normal;
+}
+form input[type="submit"] {
+    border-style: solid!important;
+    border-width: 2px!important;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#submit, .search-submit, input.wpcf7-submit, #searchsubmit, .button, input[type="submit"], .single_add_to_cart_button, .button, #tool-navigation-lower .buttons a.button {
+    background: #96be10;
+    background: -moz-linear-gradient(top,#96be10 0,#73a726 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#96be10),color-stop(100%,#73a726));
+    background: -webkit-linear-gradient(top,#96be10 0,#73a726 100%);
+    background: -o-linear-gradient(top,#96be10 0,#73a726 100%);
+    background: -ms-linear-gradient(top,#96be10 0,#73a726 100%);
+    background: linear-gradient(to bottom,#96be10 0,#73a726 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#96be10',endColorstr='#73a726',GradientType=0);
+    border-color: rgba(150,190,16,1) !important;
+    color: #fff !important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+#submit, .search-submit, input.wpcf7-submit, #searchsubmit, .button, input[type="submit"] {
+    cursor: pointer;
+}
+input[type="submit"] {
+    cursor: pointer;
+}
+.search-submit, #searchsubmit {
+    width: 27%;
+    float: right;
+    padding: 10px 10px;
+}
+body, .header_meta a, .meta_data a, .testimonials footer, .testimonial footer, .quote_author, textarea, input, a .meta-date, .product-options a.add_to_cart_button, .product-options a.view-product-details, .comment_name a, .comment-meta .comment_name a, select, button, p.buttons a, #banner p.total {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666;
+}
+.search-form {
+    overflow: hidden;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    outline: none;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+form {
+    display: block;
+    margin-top: 0em;
+}
+.search-form label {
+    width: 70%;
+    margin: 0;
+    display: inline-block;
+}
+
+div#menu {
+    margin-left: 17px;
+    margin-top: 21px;
+}

@@ -1,0 +1,43 @@
+<div class="col-lg-12 col-xs-12">
+
+  <div class="blog_row col-lg-6 col-xs-12" *ngFor="let item of hoatDongService.hoatDongForTrueListProperty">
+    <!--BlogPost-->
+    <article id="post-6045" class="col-2 blog_post teaser post-6045 post type-post status-publish format-standard has-post-thumbnail hentry category-tin-tuc odd">
+
+      <!--Post Content-->
+
+      <a routerLink="/nguoidung/inforcosothuy/{{item.IdCoSoThuY}}/hoatdong/detail/{{item.IdHoatDong}}" title="LỊCH LÀM VIỆC TẾT 2017"
+        class="post-thumbnail">
+        <img src="http://localhost:1650/Images/{{item.ImageShow}}" class="attachment-ots-post-thumbnail-medium size-ots-post-thumbnail-medium wp-post-image"
+          alt="">
+      </a>
+
+      <header>
+        <h3>
+          <a routerLink="/nguoidung/inforcosothuy/{{ item.IdCoSoThuY }}/hoatdong/detail/{{item.IdHoatDong}}" title="LỊCH LÀM VIỆC TẾT 2017"
+            rel="bookmark">{{ item.TenHoatDong }}</a>
+        </h3>
+        <div class="header_meta">
+          <span class="author vcard meta_author">
+            <a class="url fn n" href="http://petcare.vn/author/petcare/" title="View all posts by Petcare" rel="author">{{ item.IdCoSoThuY }}</a>
+          </span>
+          <span class="meta-date">
+            <time class="entry-date" datetime="2016-12-30T16:26:31+00:00">{{item.NgayThang}}</time>
+          </span>
+        </div>
+      </header>
+
+      <p>
+        {{ item.MoTa }}
+      </p>
+
+      <!--End Post Content-->
+
+      <a routerLink="/nguoidung/inforcosothuy/{{item.IdCoSoThuY}}/hoatdong/detail/{{item.IdHoatDong}}" title="LỊCH LÀM VIỆC TẾT 2017"
+        class="button-read-more">Xem thêm</a>
+
+    </article>
+    <!--EndBlogPost-->
+  </div>
+
+</div>

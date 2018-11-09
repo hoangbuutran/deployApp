@@ -1,0 +1,197 @@
+<div class="wrapper">
+    <header class="main-header">
+        <a routerLink="/admin" class="logo">
+            <span class="logo-lg">
+                <b>Admin</b>LTE</span>
+        </a>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small>
+                                                    <i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">See All Messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 10 notifications</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">View all</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/Image/avatar5.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ tenAmin }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
+                                <p>
+                                    Trần Hoàng Bửu - Web Developer
+                                    <small>Member since Nov. 2018</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer ">
+                                <div class="pull-left">
+                                    <a routerLink="/admin/changepass" class="btn btn-default btn-flat">Change Pass</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a (click)="LogOut()" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/Image/avatar5.png" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>{{tenAmin}}</p>
+                    <!-- Status -->
+                    <a href="#" data-toggle="dropdown">
+                        <i class="fa fa-circle text-success"></i> Online
+                    </a>
+                </div>
+            </div>
+
+            <!-- search form (Optional) -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Mục Quản Lý</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li class="active">
+                    <a routerLink="/admin/home">
+                        <i class="fa fa-link"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/quyen">
+                        <i class="fa fa-link"></i>
+                        <span>Quyền</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/giongthucung">
+                        <i class="fa fa-link"></i>
+                        <span>Giống thú cưng</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/chuyenmuc">
+                        <i class="fa fa-link"></i>
+                        <span>Chuyên mục</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/cosothuy">
+                        <i class="fa fa-link"></i>
+                        <span>Cơ sở thu y</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/qlshop">
+                        <i class="fa fa-link"></i>
+                        <span>Shop</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/qlbaiviet">
+                        <i class="fa fa-link"></i>
+                        <span>Bài viết</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a routerLink="/admin/error">
+                        <i class="fa fa-link"></i>
+                        <span>Error</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            DTU Manager
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; {{ YearNow }}
+            <a target="_black" href="https://www.facebook.com/hoangbuutran66">Bửu Trần FB</a>.</strong> Follow Me.
+    </footer>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="row" *ngFor="let itemLoaiSanPham of listLoaiSanPhamVoiSanPham">
+  <div class="row">
+    <div class="col-md-9">
+      <h3>
+        {{ itemLoaiSanPham.TenLoaiSanPham }}
+      </h3>
+
+    </div>
+    <div class="col-md-3">
+
+      <div class="controls pull-right hidden-xs">
+
+        <a class="btn btn-success" routerLink="/nguoidung/kenhcuashop/{{ itemLoaiSanPham.IdShop }}/loaisanpham/{{ itemLoaiSanPham.IdLoaiSanPham }}">View more</a>
+
+      </div>
+    </div>
+  </div>
+  <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <div class="item active">
+
+        <div *ngFor="let itemSanPham of itemLoaiSanPham.SanPhams; let i=index">
+
+          <div *ngIf="i < 4">
+            <div class="col-lg-3 col-xs-6">
+              <div class="col-item">
+                <div class="photo">
+                  <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                </div>
+                <div class="info">
+                  <div class="row">
+                    <div class="price col-md-12">
+                      <h5>
+                        {{ itemSanPham.TenSanPham}}</h5>
+                      <h5 class="price-text-color">
+                        {{ itemSanPham.Gia }}</h5>
+                    </div>
+
+                  </div>
+                  <div class="separator clear-left">
+                    <p (click)="addProductToCart(itemSanPham, 1)" class="btn-add">
+                      <i class="fa fa-shopping-cart"></i>
+                      <a class="hidden-sm">Add cart</a>
+                    </p>
+                    <p class="btn-details">
+                      <a routerLink="/nguoidung/kenhnguoiban/viewproduct/{{ itemSanPham.IdSanPham }}" class="hidden-sm">Details</a>
+                    </p>
+                  </div>
+                  <div class="clearfix">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

@@ -1,0 +1,37 @@
+<!-- Main content -->
+<section class="content">
+    <div class="col-lg-12">
+      <div class="cardTuLamIndex">
+        <div class="box-title">
+          <div class="box-header with-border">
+            <h3 class="box-title">Sửa thông tin Chuyên Mục</h3>
+          </div>
+          <form class="form-horizontal" [formGroup]="ChuyenMucEditForm" (ngSubmit)="ChuyenMucEditSubmitForm()">
+            <div class="box-body">
+  
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Tên Chuyên Mục</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="TenChuyenMuc" placeholder="Tên Chuyên Mục">
+                  <p *ngIf="ChuyenMucEditForm.get('TenChuyenMuc').invalid && ChuyenMucEditForm.get('TenChuyenMuc').touched">Required</p>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Trạng thái</label>
+                <div class="col-sm-3">
+                  <select class="form-control select2" formControlName="TrangThai">
+                    <option value="" disabled selected>Select your option</option>
+                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+              <button type="submit" [disabled]="ChuyenMucEditForm.invalid" class="btn btn-info pull-right">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

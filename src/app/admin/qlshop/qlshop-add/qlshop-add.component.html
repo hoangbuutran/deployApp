@@ -1,0 +1,62 @@
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box-title">
+        <div class="box-header with-border">
+          <h3 class="box-title">Thêm mới shop</h3>
+        </div>
+        <form class="form-horizontal" [formGroup]="ShopAddForm" (ngSubmit)="ShopAddSubmitForm()">
+          <div class="box-body">
+            <input type="hidden" value="100" formControlName="DoTinCay">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Tên shop</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="TenShop" placeholder="Tên shop">
+                <p *ngIf="ShopAddForm.get('TenShop').invalid && ShopAddForm.get('TenShop').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Địa điểm</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="DiaChi" placeholder="Địa điểm">
+                <p *ngIf="ShopAddForm.get('DiaChi').invalid && ShopAddForm.get('DiaChi').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Số điện thoại</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="SDT" placeholder="Số điện thoại">
+                <p *ngIf="ShopAddForm.get('SDT').invalid && ShopAddForm.get('SDT').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="Email" placeholder="Email">
+                <p *ngIf="ShopAddForm.get('Email').invalid && ShopAddForm.get('Email').touched">Required</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Trạng thái</label>
+              <div class="col-sm-3">
+                <select class="form-control select2" formControlName="TrangThai">
+                  <option value="" disabled selected>Select your option</option>
+                  <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" [disabled]="ShopAddForm.invalid" class="btn btn-info pull-right">Submit</button>
+            <!-- <button type="submit"  class="btn btn-info pull-right">Submit</button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

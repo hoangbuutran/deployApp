@@ -1,0 +1,9 @@
+.container {
+    background-color:#eeeeee;
+    padding-top: 22px;
+    width: 1300px;
+}
+form.sidebar-form-search {
+    border: 1px solid #374850;
+    margin-top: 7px;
+}

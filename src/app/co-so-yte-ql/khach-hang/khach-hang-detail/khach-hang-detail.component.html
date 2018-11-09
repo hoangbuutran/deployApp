@@ -1,0 +1,98 @@
+<section class="content">
+
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h2 class="box-title">Thông tin khách hàng và thú cưng đăng kí chăm sóc</h2>
+        </div>
+        <!-- /.box-header -->
+        <div class="col-lg-12">
+          <div class="col-lg-6 col-xs-6">
+            <h2>Thông tin khách hàng</h2>
+            <div class="modal-body">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Tên khách hàng: </label>
+                    {{TenNguoiDungDetail}}
+                  </div>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Địa chỉ: </label>
+                    {{DiaChiDetail}}
+                  </div>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Ngày sinh: </label>
+                    {{NgaySinhDetail | date: "yyyy-MM-dd"}}
+                  </div>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Hình ảnh: </label>
+                    <br>
+                    <img [src]="HinhAnhDetail" class="col-xs-6" style="height:auto; border-radius: 12px; margin-left: 80px;">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Số điện thoại: </label>
+                    {{SDTDetail}}
+                  </div>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label>Email: </label>
+                    {{EmailDetail}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xs-6">
+            <h2>Danh sách thú cưng khách hàng</h2>
+            <div class="box-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Tên thú cưng</th>
+                    <th>Ngày nuôi</th>
+                    <th>Tùy chọn</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of thuCungService.listThuCungWithIdNguoiDung | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <tr>
+                    <td>
+                      {{ item.TenThuongGoi }}
+                    </td>
+                    <td>
+                      {{ item.NgayNuoi | date: "yyyy-MM-dd" }}
+                    </td>
+                    <td>
+                      <button class="btn btn-warning btn-rounded m-b-12 m-l-5" routerLink="/cosoyteql/khachhang/thucungdetailwithkhachhang/{{ item.IdThuCung }}">Xem</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,510 @@
+<div class="col-lg-12 col-xs-12">
+    <div class="col-lg-3 col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Danh sách thú cưng</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <ul class="products-list product-list-in-box">
+                    <li class="item">
+                        <button data-toggle="modal" data-target="#thuCungAddDetalModal" class="btn btn-success btn-block">Thêm mới thú cưng</button>
+                    </li>
+                    <li class="item" *ngFor="let item of thuCungService.listThuCungWithIdNguoiDung">
+                        <div class="product-img">
+                            <img id="imagethucung" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt="Product Image">
+                        </div>
+                        <div class="product-info">
+                            <a (click)="viewThuCung(item.IdThuCung)" class="product-title">{{ item.TenThuongGoi }}
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <div class="col-lg-9 col-xs-12">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <i class="fa fa-warning"></i>
+                <h3 class="box-title">Thông tin chi tiết thú cưng</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="alert bg-gray alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>
+                        <i class="icon fa fa-ban"></i>Thông tin thú cưng
+                    </h4>
+                    <div class="form-horizontal">
+                        <div class="col-lg-6">
+                            <label> Tên thường gọi:</label> {{ tenThuongGoiDetail }}
+                        </div>
+                        <div class="col-lg-6">
+                            <label> Ngày nuôi:</label> {{ ngayNuoiDetail }}
+                        </div>
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="col-lg-9">
+                            <label> Giống thú cưng:</label> {{ giongThuCungDetail }}
+                        </div>
+                        <div class="col-lg-3">
+                            <label> Trạng thái:</label>{{ trangThaiDetail }}
+                        </div>
+                    </div>
+                    <label>.........................................................</label>
+                    <button (click)="editThuCung()" data-toggle="modal" data-target="#thongTinEditDetalModal" class="btn-block btn-success btn">Sửa thông tin</button>
+                </div>
+                <div class="alert bg-gray alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>
+                        <i class="icon fa fa-ban"></i>Tình Trạng</h4>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Ngày nhập</th>
+                                    <th style="width: 60px"></th>
+                                </tr>
+                                <tr *ngFor="let item of tinhTrangService.listtinhTrangWithIdThuCung">
+                                    <td>
+                                        {{ item.NgayCapNhat }}
+                                    </td>
+                                    <td>
+                                        <a (click)="editTinhTrang(item.IdTinhTrang)" data-toggle="modal" data-target="#tinhTrangEditDetalModal" title="Chỉnh sửa Thú cưng">
+                                            <i class="fa fa-fw fa-edit"></i>
+                                        </a>
+                                        <a (click)="xemTinhTrang(item.IdTinhTrang)" data-toggle="modal" data-target="#tinhTrangDetalModal" title="Xem Thú cưng">
+                                            <i class="fa fa-fw fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <label>.................................................</label>
+                        <button data-toggle="modal" data-target="#tinhTrangAddDetalModal" class="btn-block btn-success btn">Thêm</button>
+                    </div>
+                </div>
+                <div class="alert bg-gray alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>
+                        <i class="icon fa fa-ban"></i>Cân Nặng</h4>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Số cân</th>
+                                    <th>Ngày nhập</th>
+                                    <th style="width: 40px"></th>
+                                </tr>
+                                <tr *ngFor="let item of canNangService.listcanNangWithIdThuCung">
+                                    <td>{{ item.CanNang1 }}kg</td>
+                                    <td>
+                                        {{ item.NgayCapNhat }}
+                                    </td>
+                                    <td>
+                                        <a (click)="editCanNang(item.IdCanNang)" data-toggle="modal" data-target="#canNangEditDetalModal" title="Chỉnh sửa Thú cưng">
+                                            <i class="fa fa-fw fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <label>.................................................</label>
+                        <button data-toggle="modal" data-target="#canNangAddDetalModal" class="btn-block btn-success btn">Thêm</button>
+                    </div>
+                </div>
+                <div class="alert bg-gray alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>
+                        <i class="icon fa fa-ban"></i>Lịch sử khám</h4>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Tình trạng bệnh</th>
+                                    <th>Ngày khám</th>
+                                    <th style="width: 40px"></th>
+                                </tr>
+                                <tr *ngFor="let item of lichSuKhamDetail">
+                                    <td>{{ item.TinhTrangBenh }}</td>
+                                    <td>
+                                        {{ item.NgayThang }}
+                                    </td>
+                                    <td>
+                                        <a (click)="xemLichSuKham(item.IdLichSuKham)" data-toggle="modal" data-target="#lichSuKhamDetalModal" title="Xem Thú cưng">
+                                            <i class="fa fa-fw fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+
+
+<div class="modal fade" id="lichSuKhamDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Thông tin chi tiết lịch sử khám thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12 center-block">
+                            <label>Tình trạng bệnh: </label>
+                            {{ tinhTrangBenh }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12 center-block">
+                            <label>Ngày thăm khám: </label>
+                            {{ ngayTham }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12 center-block">
+                            <label>Lời nhắn bác sĩ: </label>
+                            {{ loiNhan }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thuCungAddDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Thêm mới thú cưng của bạn</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="thuCungAddForm" (ngSubmit)="thuCungAddSubmitForm()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Tên thường gọi</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="TenThuongGoi" placeholder="Tên thường gọi">
+                                <p *ngIf="thuCungAddForm.get('TenThuongGoi').invalid && thuCungAddForm.get('TenThuongGoi').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Ngày nuôi</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" formControlName="NgayNuoi" placeholder="Ngày nuôi">
+                                <p *ngIf="thuCungAddForm.get('NgayNuoi').invalid && thuCungAddForm.get('NgayNuoi').touched">Required</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Giống thú cưng</label>
+                            <div class="col-sm-5">
+                                <select class="form-control select2" formControlName="IdGiongThuCung">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of giongThuCungService.giongThuCungListProperty" [value]="c.IdGiongThuCung">{{c.TenGiongThuCung}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-sm-5">
+                                <select class="form-control select2" formControlName="TrangThai">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="thuCungAddForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thongTinEditDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Chỉnh sửa thông tin thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="thuCungEditForm" (ngSubmit)="thuCungEditSubmitForm()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Tên thường gọi</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="TenThuongGoi" placeholder="Tên quyền">
+                                <p *ngIf="thuCungEditForm.get('TenThuongGoi').invalid && thuCungEditForm.get('TenThuongGoi').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Ngày nuôi</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="NgayNuoi" placeholder="Tên quyền">
+                                <p *ngIf="thuCungEditForm.get('NgayNuoi').invalid && thuCungEditForm.get('NgayNuoi').touched">Required</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Giống thú cưng</label>
+                            <div class="col-sm-9">
+                                <select class="form-control select2" formControlName="IdGiongThuCung">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of giongThuCungService.giongThuCungListProperty" [value]="c.IdGiongThuCung">{{c.TenGiongThuCung}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-sm-5">
+                                <select class="form-control select2" formControlName="TrangThai">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="thuCungEditForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tinhTrangAddDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Cập nhật tình trạng cho thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="tinhTrangEditForm" (ngSubmit)="tinhTrangAddSubmitForm()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Nội dung</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="NoiDungTinhTrang" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('NoiDungTinhTrang').invalid && tinhTrangEditForm.get('NoiDungTinhTrang').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Hình ảnh</label>
+                            <div class="col-sm-9">
+                                <input type="image" class="form-control" formControlName="HinhAnh" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('HinhAnh').invalid && tinhTrangEditForm.get('HinhAnh').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Video </label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" formControlName="LinkVideo" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('LinkVideo').invalid && tinhTrangEditForm.get('LinkVideo').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-sm-3">
+                                <select class="form-control select2" formControlName="TrangThai">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="tinhTrangEditForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tinhTrangEditDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Chỉnh sửa tình trạng thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="tinhTrangEditForm" (ngSubmit)="tinhTrangEditSubmitForm()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Nội dung</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="NoiDungTinhTrang" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('NoiDungTinhTrang').invalid && tinhTrangEditForm.get('NoiDungTinhTrang').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Hình ảnh</label>
+                            <div class="col-sm-9">
+                                <input type="image" class="form-control" formControlName="HinhAnh" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('HinhAnh').invalid && tinhTrangEditForm.get('HinhAnh').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Video </label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" formControlName="LinkVideo" placeholder="Tên quyền">
+                                <p *ngIf="tinhTrangEditForm.get('LinkVideo').invalid && tinhTrangEditForm.get('LinkVideo').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-sm-3">
+                                <select class="form-control select2" formControlName="TrangThai">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="tinhTrangEditForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tinhTrangDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Thông tin chi tiết tình trạng thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>gege: </label>
+                            ----
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="canNangAddDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Cập nhật cân nặng cho thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="canNangAddForm" (ngSubmit)="canNangAddSubmitForm()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Số cân nặng</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="CanNang1" placeholder="Tên quyền">
+                                <p *ngIf="canNangAddForm.get('CanNang1').invalid && canNangAddForm.get('CanNang1').touched">Required</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-sm-3">
+                                <select class="form-control select2" formControlName="TrangThai">
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option *ngFor="let c of trangThaiList" [value]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="canNangAddForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="canNangEditDetalModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <label id="title">Chỉnh sửa cân nặng thú cưng</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>gege: </label>
+                            ----
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

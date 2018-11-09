@@ -1,0 +1,140 @@
+
+<!-- Main content -->
+<section class="content">
+  <div class="col-lg-12">
+    <div class="cardTuLamIndex">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Danh sách giống thú cưng</h3>
+        </div>
+        <br>
+        <div class="btnthem">
+          <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" routerLink="/admin/giongthucung/add">
+            Thêm mới giống thú cưng
+          </button>
+          <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" (click)="XoaNhieu()">
+            Xóa nhiều
+          </button>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 10px">Select</th>
+                <th>Tên giống</th>
+                <th>Trạng thái</th>
+                <th>Tùy chọn</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of giongThuCungService.giongThuCungListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
+              <tr>
+                <td>
+                  <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdGiongThuCung)">
+                </td>
+                <td>
+                  {{ item.TenGiongThuCung }}
+                </td>
+                <td>
+                  {{ item.TrangThai }}
+                </td>
+                <td>
+                  <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/admin/giongthucung/edit/{{ item.IdGiongThuCung }}">Sửa</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="KhoaMo(item.IdGiongThuCung)">Khóa Mở</button>
+                  <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="XemThongTinGiongThuCung(item.IdGiongThuCung)" data-toggle="modal"
+                    data-target="#GiongThuCungDetalModal">Xem</button>
+                  <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="XoaGiongThuCung(item.IdGiongThuCung)">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- modal dùng để hiển thị thông tin tài khoản -->
+<div class="modal fade" id="GiongThuCungDetalModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <label id="title">Thông tin chi tiết giống thú cưng</label>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Tên giống thú cưng: </label>
+              {{ TenGiongThuCungDetail }}
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Giới thiệu: </label>
+              <div [innerHTML]="GioiThieuDetail | keepHtml"></div>             
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Tính cách: </label>
+              <div [innerHTML]="TinhCachDetail | keepHtml"></div> 
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Hình ảnh: </label>
+              <br>
+              <img [src]="HinhAnhDetail" class="center-block" style="width:350px;height:250px; border-radius: 10px">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Đặc điểm: </label>
+              <div [innerHTML]="DacDiemDetail | keepHtml"></div> 
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Cách chăm sóc: </label>
+              <div [innerHTML]="CachChamSocDetail | keepHtml"></div> 
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Lưu ý sức khỏe: </label>
+              <div [innerHTML]="LuuYSucKhoeDetail | keepHtml"></div> 
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <label>Lịch sử: </label>
+              <div [innerHTML]="LichSuDetail | keepHtml"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

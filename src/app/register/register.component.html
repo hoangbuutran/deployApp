@@ -1,0 +1,26 @@
+<div class="login-box">
+  <div class="login-logo">
+      <a routerLink="/register">
+          <b>Register</b>AppPet</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+      <p class="login-box-msg">Tạo mới một tài khoản</p>
+      {{ errorMessenger }}
+      <form class="form-horizontal" [formGroup]="RegisterForm" (ngSubmit)="RegisterSubmitForm()">
+          <div class="form-group has-feedback">
+              <input type="email" class="form-control" formControlName="UserName" placeholder="UserName">
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+              <input type="password" class="form-control" formControlName="Pass" placeholder="Password">
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="row">
+              <div class="col-xs-12">
+                  <button type="submit" [disabled]="RegisterForm.invalid" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>

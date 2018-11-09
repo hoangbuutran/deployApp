@@ -1,0 +1,43 @@
+<div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+  <h3 class="page-header">Danh sách loại sản phẩm</h3>
+  <div class="carousel-inner">
+
+    <div class="item active" *ngFor="let item of listSanPhamVoiIdLoaiSanPham">
+
+      <div class="col-lg-3 col-xs-6">
+        <div class="col-item">
+          <div class="photo">
+            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+          </div>
+          <div class="info">
+            <div class="row">
+              <div class="price col-md-12">
+                <h5>
+                  {{ item.TenSanPham }}
+                </h5>
+                <h5 class="price-text-color">
+                  {{ item.Gia }}
+                </h5>
+              </div>
+
+            </div>
+            <div class="separator clear-left">
+              <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i>
+                <a (click)="addProductToCart(item, 1)" class="hidden-sm">Add cart</a>
+              </p>
+
+              <p class="btn-details">
+                <i class="fa fa-bars" routerLink="/nguoidung/kenhcuashop/{{ item.IdShop }}/viewsanphamdetail/{{ item.IdSanPham }}"></i>
+                <a routerLink="/nguoidung/kenhcuashop/{{ item.IdShop }}/viewsanphamdetail/{{ item.IdSanPham }}" class="hidden-sm">Details</a>
+              </p>
+            </div>
+            <div class="clearfix">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

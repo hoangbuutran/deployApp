@@ -1,0 +1,80 @@
+<div class="cart">
+    <div class="wrapper row">
+      <div class="preview col-md-6">
+        <div class="preview-pic tab-content">
+          <div class="tab-pane active" id="pic-1">
+            <img src="http://placekitten.com/400/252" />
+          </div>
+          <div class="tab-pane" id="pic-2">
+            <img src="http://placekitten.com/400/252" />
+          </div>
+          <div class="tab-pane" id="pic-3">
+            <img src="http://placekitten.com/400/252" />
+          </div>
+          <div class="tab-pane" id="pic-4">
+            <img src="http://placekitten.com/400/252" />
+          </div>
+          <div class="tab-pane" id="pic-5">
+            <img src="http://placekitten.com/400/252" />
+          </div>
+        </div>
+        <ul class="preview-thumbnail nav nav-tabs">
+          <li class="active">
+            <a data-target="#pic-1" data-toggle="tab">
+              <img src="http://placekitten.com/200/126" />
+            </a>
+          </li>
+          <li>
+            <a data-target="#pic-2" data-toggle="tab">
+              <img src="http://placekitten.com/200/126" />
+            </a>
+          </li>
+          <li>
+            <a data-target="#pic-3" data-toggle="tab">
+              <img src="http://placekitten.com/200/126" />
+            </a>
+          </li>
+          <li>
+            <a data-target="#pic-4" data-toggle="tab">
+              <img src="http://placekitten.com/200/126" />
+            </a>
+          </li>
+          <li>
+            <a data-target="#pic-5" data-toggle="tab">
+              <img src="http://placekitten.com/200/126" />
+            </a>
+          </li>
+        </ul>
+  
+      </div>
+      <div class="details col-md-6">
+        <h3 class="product-title">Tên sản Phẩm: {{ TenSanPhamDetail }}</h3>
+  
+        <h4><strong>Giá sản phẩm:</strong>
+          <span>{{ GiaDetail }}</span>
+        </h4>
+  
+        <h4> <strong>Loại sản phẩm:</strong>
+          <span>{{ TenLoaiSanPham }}</span>
+        </h4>
+        <h4> <strong> Shop đăng bán:</strong>
+          <span>{{ TenShop }}</span>
+        </h4>
+        <div class="action">
+          <button (click)="addProductToCart(item, 1)" class="add-to-cart btn btn-default" type="button">add to cart</button>
+        </div>
+      </div>
+    </div>
+  
+    <hr>
+    <div class="col-xs-12">
+      <ul class="menu-items">
+        <p class="price"> Đặc điểm sản phẩm</p>
+      </ul>
+      <div style="width:100%;border-top:1px solid silver">
+        <p style="padding:15px;">
+          {{ DacDiemDetail }}
+        </p>
+      </div>
+    </div>
+  </div>

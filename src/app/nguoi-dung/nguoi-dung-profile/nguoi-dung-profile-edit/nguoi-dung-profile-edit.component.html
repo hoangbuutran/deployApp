@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-black" style="background: url('assets/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc">Web Designer</h5>
+            </div>
+            <div class="widget-user-image">
+                <img class="img-circle" src="assets/img/user3-128x128.jpg" alt="User Avatar">
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">3,200</h5>
+                            <span class="description-text">SALES</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">13,000</h5>
+                            <span class="description-text">FOLLOWERS</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4">
+                        <div class="description-block">
+                            <h5 class="description-header">35</h5>
+                            <span class="description-text">PRODUCTS</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+        <!-- /.widget-user -->
+    </div>
+    <!-- /.col -->
+</div>
+
+<section class="content">
+
+    <div class="col-lg-12">
+        <div class="box box-primary">
+            <div class="box-title">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thay đổi Profile</h3>
+                </div>
+                <form class="form-horizontal" [formGroup]="NguoiDungEditProfileForm" (ngSubmit)="NguoiDungEditProfileSubmitForm()">
+                    <input type="hidden" formControlName="IdNguoiDung" name="IdNguoiDung">
+                    <input type="hidden" formControlName="IdTaiKhoan" name="IdTaiKhoan">
+                    <input type="hidden" formControlName="HinhAnh" name="HinhAnh">
+                    
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Tên người dùng</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="TenNguoiDung" placeholder="Tên người dùng">
+                                <p *ngIf="NguoiDungEditProfileForm.get('TenNguoiDung').invalid && NguoiDungEditProfileForm.get('TenNguoiDung').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Địa điểm</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="DiaChi" placeholder="Địa điểm">
+                                <p *ngIf="NguoiDungEditProfileForm.get('DiaChi').invalid && NguoiDungEditProfileForm.get('DiaChi').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Số điện thoại</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="SDT" placeholder="Số điện thoại">
+                                <p *ngIf="NguoiDungEditProfileForm.get('SDT').invalid && NguoiDungEditProfileForm.get('SDT').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="Email" placeholder="Email">
+                                <p *ngIf="NguoiDungEditProfileForm.get('Email').invalid && NguoiDungEditProfileForm.get('Email').touched">Required</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="datetime" class="form-control" formControlName="NgaySinh" placeholder="Email">
+                                <p *ngIf="NguoiDungEditProfileForm.get('NgaySinh').invalid && NguoiDungEditProfileForm.get('NgaySinh').touched">Required</p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Cơ sở thú y đăng ký</label>
+                            <div class="col-sm-3">
+                              <select class="form-control select2" formControlName="IdCoSoThuY">
+                                <option value="" disabled selected>Select your option</option>
+                                <option *ngFor="let c of listCSTY" [value]="c.IdCoSoThuY">{{c.TenCoSoThuY}}</option>
+                              </select>
+                            </div>
+                          </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" [disabled]="NguoiDungEditProfileForm.invalid" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

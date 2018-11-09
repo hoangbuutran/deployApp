@@ -1,0 +1,20 @@
+.cardTuLamIndex {
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 23px;
+    padding-bottom: 5px;
+    margin-top: 34px;
+    margin-bottom: 33px;
+    background: #fff;
+    border-radius: 19px;
+    display: inline-block;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.btn-them {
+    margin-left: 11px;
+}
+pagination-controls {
+    float: right;
+    padding-top: 20px;
+}

@@ -1,0 +1,74 @@
+<section class="content-header">
+    <h1>
+      Trang Thay đổi mật khẩu
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/cosoyteql">
+          <i class="fa fa-dashboard"></i>Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/cosoyteql/changepass">
+          <i class="fa fa-dashboard"></i>Thay đổi mật khẩu
+        </a>
+      </li>
+      <li class="active">Here</li>
+    </ol>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+  
+    <div class="col-lg-12">
+      <div class="cardTuLamIndex">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Thay đổi mật khẩu</h3>
+          </div>
+          <br>
+  
+          <div class="row">
+            <div class="col-lg-2 col-xs-2">
+  
+            </div>
+            <div class="col-lg-8 col-xs-8 personal-info">
+  
+              <form [formGroup]="ChangePassForm" (ngSubmit)="ChangePassSubmitForm()" class="form-horizontal" role="form">
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Tên đăng nhập:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="UserName">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Mật khẩu củ:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="PassOld">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Mật khẩu mới:</label>
+                  <div class="col-lg-7">
+                    <input class="form-control" type="text" formControlName="PassNew">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-7">
+                    <input type="submit" [disabled]="ChangePassForm.invalid" class="btn btn-primary" value="Save Changes">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-2 col-xs-2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>

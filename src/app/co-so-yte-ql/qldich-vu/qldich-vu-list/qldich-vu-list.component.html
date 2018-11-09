@@ -1,0 +1,57 @@
+<!-- Main content -->
+<section class="content">
+    <div class="col-lg-12">
+        <div class="cardTuLamIndex">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách dịch vụ</h3>
+                </div>
+                <br>
+                <div class="btnthem">
+                    <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" routerLink="/cosoyteql/qldichvu/add">
+                        Thêm mới
+                    </button>
+                    <button class="btn btn-primary btn-md m-b-10 m-l-5 btn-them" (click)="xoaNhieu()">
+                        Xóa nhiều
+                    </button>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">Select</th>
+                                <th>Tên dịch vụ</th>
+                                <th>Trạng thái</th>
+                                <th>Tùy chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of dichVuService.dichVuListProperty | paginate: { itemsPerPage: 5, currentPage: p }">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="DeleteMulti" (change)="checkboxDelete(item.IdDichVu)">
+                                </td>
+                                <td>
+                                    {{ item.TenDichVu }}
+                                </td>
+  
+                                <td>
+                                    {{ item.TinhTrang }}
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning btn-rounded m-b-10 m-l-5" routerLink="/cosoyteql/qldichvu/edit/{{ item.IdDichVu }}">Sửa</button>
+                                    <button class="btn btn-dark btn-rounded m-b-10 m-l-5" (click)="khoaMo(item.IdDichVu)">Khóa Mở</button>
+                                    <button class="btn btn-primary btn-rounded m-b-10 m-l-5" (click)="xoaDichVu(item.IdDichVu)">Xóa</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </section>
+  
+  
